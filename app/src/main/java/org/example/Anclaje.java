@@ -12,5 +12,12 @@ public class Anclaje {
         this.isOcupado = true;
     }
 
-    
+    public Bicicleta getBici() {
+        return this.bici;
+    }
+
+    public void liberarBici() {
+        this.bici = null;
+        this.isOcupado = false;
+    }
 }
