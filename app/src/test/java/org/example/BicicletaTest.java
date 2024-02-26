@@ -18,15 +18,9 @@ public class BicicletaTest {
     public void constructorBiciTest() {
         assertEquals(999, bici.getId());
     }
-
+    
     @Test
     public void toStringTest() {
         assertEquals("999", bici.toString());
     }
-
-    @Test
-    public void implementationMovilTest() {
-       assertEquals(999, bici.getId());
-    }
-    
 }
