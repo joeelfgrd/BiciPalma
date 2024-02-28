@@ -32,15 +32,14 @@ public class Anclajes {
 
      
     void ocuparAnclaje(int posicion, Bicicleta bicicleta) {
-        if (posicion >= 0 && posicion < anclajes.length && !anclajes[posicion].isOcupado()) {
+        if (!isAnclajeOcupado(posicion)) {
             anclajes[posicion].anclarBici(bicicleta);
-            this.numAnclajes--;
         } else {
-            throw new IllegalArgumentException("Posición inválida o anclaje ya ocupado");
+            throw new IllegalArgumentException("El anclaje ya está ocupado");
         }
     }
-    boolean isAnclajeOcupado() {
-        return this.numAnclajes > 0;
+    boolean isAnclajeOcupado(int posicion) {
+        return anclajes[posicion].isOcupado();
     }
 
     void liberarAnclaje() {
