@@ -2,45 +2,42 @@ package org.example;
 
 public class Anclajes {
     
-    
-    private final Anclaje[] anclajes;
-    
-        Anclajes(int numAnclajes) {
-            this.anclajes = new Anclaje[numAnclajes];
-            crearAnclajes();
-        }
+    private Anclaje[] anclajes;
+    private int numAnclajes;
 
-        private void crearAnclajes() {
-            for (int i = 0; i < anclajes.length; i++) {
-                this.anclajes[i] = new Anclaje();
-            }
-        }
-        Anclaje[] anclajes() {
-            return this.anclajes;
-        }
+    Anclajes(int numAnclajes) {
+        this.numAnclajes = numAnclajes;
+        this.anclajes = new Anclaje[numAnclajes];
+        crearAnclajes();
+    }
 
-        
-        String NumAnclajesAString() {
-            return String.valueOf(this.numAnclajes);
+    private void crearAnclajes() {
+        for (int i = 0; i < anclajes.length; i++) {
+            this.anclajes[i] = new Anclaje();
         }
+    }
 
-        @Override
-        public String toString() {
-            return "Numero de anclajes: " + this.numAnclajes;
-        }
-        
-        int numAnclajes() {
-            return this.anclajes.length;
-        }
+    Anclaje[] anclajes() {
+        return this.anclajes;
+    }
 
+    int numAnclajes(){
+        return this.anclajes.length;
+    }
 
-        void ocuparAnclaje() {
+    @Override
+    public String toString() {
+        return "Numero de anclajes: " + this.numAnclajes;
+    }
+
+     
+    void ocuparAnclaje() {
         this.numAnclajes--;
-        }
-        boolean isAnclajeOcupado() {
+    }
+    boolean isAnclajeOcupado() {
         return this.numAnclajes > 0;
-        }
-        public
+    }
 }
+
 
 
