@@ -69,8 +69,7 @@ public class Anclajes {
         for (int i = 0; i < anclajes.length; i++) {
             if (isAnclajeOcupado(i)) {
                 return i;
-            }
-            
+            }  
         }
         throw new IllegalStateException("No hay anclajes libres");
     }
