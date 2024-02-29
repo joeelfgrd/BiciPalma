@@ -1,6 +1,7 @@
 package org.example;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
@@ -22,18 +23,19 @@ public class AnclajesTest {
         assertEquals(6, anclajes.numAnclajes());
     }
 
-    
+   
     @Test
     public void isAnclajeOcupadoTest() {
         Anclajes anclajes = new Anclajes(6);
         try {
-            anclajes.ocuparAnclaje(5, new Bicicleta(0));
-            assertTrue(anclajes.isAnclajeOcupado(5)); 
+            anclajes.ocuparAnclaje(0, new Bicicleta(0));
+            assertFalse(anclajes.isAnclajeOcupado(5));
         } catch (IllegalArgumentException e) {
             fail("No se esperaba IllegalArgumentException");
         }
     }
 
+    
     @Test
     public void mostrarEstadoAnclajesTest() {
         Anclajes anclajes = new Anclajes(6);
@@ -41,5 +43,14 @@ public class AnclajesTest {
         anclajes.ocuparAnclaje(3, new Bicicleta(1));
         anclajes.ocuparAnclaje(1, new Bicicleta(2));
         anclajes.mostrarEstadoAnclajes();
+    } 
+
+    @Test
+    public void seleccionarAnclajeTest() {
+    Anclajes anclajes = new Anclajes(6);
+    for (int i = 0; i < 5; i++) {
+        anclajes.ocuparAnclaje(i, new Bicicleta(i));
     }
+    anclajes.ocuparAnclaje(3, new Bicicleta(5));
+}
 }

@@ -38,10 +38,13 @@ public class Anclajes {
             throw new IllegalArgumentException("El anclaje ya está ocupado");
         }
     }
-    boolean isAnclajeOcupado(int posicion) {
+    public boolean isAnclajeOcupado(int posicion) {
+        if (posicion < 0 && posicion >= anclajes.length) {
+            throw new IllegalArgumentException("Posición fuera de rango");
+        }
         return anclajes[posicion].isOcupado();
     }
-
+ 
     boolean liberarAnclaje(int posicion) {
         if (posicion >= 0 && posicion < anclajes.length) {
             if (anclajes[posicion].isOcupado()) {
@@ -52,7 +55,7 @@ public class Anclajes {
         }
         return false;
     }
-
+    
     void mostrarEstadoAnclajes() {
         for (int i = 0; i < anclajes.length; i++) {
             if (isAnclajeOcupado(i)) {
@@ -62,4 +65,15 @@ public class Anclajes {
             }
         }
     }
+    int seleccionarAnclaje() {
+        for (int i = 0; i < anclajes.length; i++) {
+            if (isAnclajeOcupado(i)) {
+                return i;
+            }
+            
+        }
+        throw new IllegalStateException("No hay anclajes libres");
+    }
 }
+
+
