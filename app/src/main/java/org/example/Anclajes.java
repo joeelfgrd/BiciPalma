@@ -33,7 +33,7 @@ public class Anclajes {
      
     void ocuparAnclaje(int posicion, Bicicleta bicicleta) {
         if (!isAnclajeOcupado(posicion)) {
-            anclajes[posicion].anclarBici(bicicleta);
+            this.numAnclajes--;
         } else {
             throw new IllegalArgumentException("El anclaje ya está ocupado");
         }
@@ -42,13 +42,24 @@ public class Anclajes {
         return anclajes[posicion].isOcupado();
     }
 
-    void liberarAnclaje() {
-        this.numAnclajes++;
+    boolean liberarAnclaje(int posicion) {
+        if (posicion >= 0 && posicion < anclajes.length) {
+            if (anclajes[posicion].isOcupado()) {
+                anclajes[posicion].liberarBici();
+                this.numAnclajes--;
+                return true;
+            }
+        }
+        return false;
     }
 
-    
-        
+    void mostrarEstadoAnclajes() {
+        for (int i = 0; i < anclajes.length; i++) {
+            if (isAnclajeOcupado(i)) {
+                System.out.println("Anclaje " + i + ": Ocupado");
+            } else {
+                System.out.println("Anclaje " + i + ": Libre");
+            }
+        }
+    }
 }
-
-
-

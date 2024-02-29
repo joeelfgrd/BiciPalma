@@ -28,9 +28,18 @@ public class AnclajesTest {
         Anclajes anclajes = new Anclajes(6);
         try {
             anclajes.ocuparAnclaje(5, new Bicicleta(0));
-            assertTrue(anclajes.isAnclajeOcupado(5)); // Pass the required argument
+            assertTrue(anclajes.isAnclajeOcupado(5)); 
         } catch (IllegalArgumentException e) {
             fail("No se esperaba IllegalArgumentException");
         }
+    }
+
+    @Test
+    public void mostrarEstadoAnclajesTest() {
+        Anclajes anclajes = new Anclajes(6);
+        anclajes.ocuparAnclaje(5, new Bicicleta(0));
+        anclajes.ocuparAnclaje(3, new Bicicleta(1));
+        anclajes.ocuparAnclaje(1, new Bicicleta(2));
+        anclajes.mostrarEstadoAnclajes();
     }
 }
